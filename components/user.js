@@ -1,10 +1,20 @@
 function User(name) {
-  function setName(newName) {
-    name = newName;
+  if (!localStorage.getItem("userName")) {
+    setName(name);
   }
+
+  function setName(newName) {
+    localStorage.setItem("userName", newName);
+    console.log(getName());
+  }
+
+  function getName() {
+    return localStorage.getItem("userName");
+  }
+
   return {
-    getName: name,
-    setName: setName,
+    getName: getName(),
+    changeName: setName,
   };
 }
 

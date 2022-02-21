@@ -1,5 +1,7 @@
-import User from "./components/user.js";
+import User from "./components/user";
 
-const spike = User("spike");
-
-console.log(spike.getName);
+(function () {
+  const user = User();
+  const name = prompt();
+  console.log(name, user);
+})();
