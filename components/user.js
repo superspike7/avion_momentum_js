@@ -1,20 +1,25 @@
 function User(name) {
-  if (!localStorage.getItem("userName")) {
-    setName(name);
+  function getElement() {
+    const element = document.createElement("div");
+    element.textContent = `Good Morning, ${name}`;
+    element.classList.add(
+      "text-gray-100",
+      "text-5xl",
+      "font-bold",
+      "text-center",
+      "self-center"
+    );
+    return element;
   }
 
-  function setName(newName) {
-    localStorage.setItem("userName", newName);
-    console.log(getName());
-  }
-
-  function getName() {
-    return localStorage.getItem("userName");
+  function changeName(newName) {
+    this.name = newName;
   }
 
   return {
-    getName: getName(),
-    changeName: setName,
+    name,
+    element: getElement(),
+    changeName,
   };
 }
 
