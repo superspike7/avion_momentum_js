@@ -1,15 +1,15 @@
 import "./style.css";
 import User from "./components/user";
+import Time from "./components/time";
 
 if (!localStorage.getItem("name")) {
   const name = prompt("Enter your name");
   localStorage.setItem("name", name);
 }
 
-const user = User(localStorage.getItem("name"));
-document.querySelector("#center").appendChild(user.element);
+const center = document.querySelector("#center");
 
-const test = User("hello");
-console.log(test.name);
-test.changeName("world");
-console.log(test.name);
+const user = User(localStorage.getItem("name"));
+
+Time().render();
+center.appendChild(user.element);
