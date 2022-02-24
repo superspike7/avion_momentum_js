@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
+    <!-- <div id="app"></div> -->
     <div
       id="app"
       class="grid grid-cols-3 grid-rows-3 h-screen w-full opacity-90 bg-gray-500 bg-blend-overlay bg-cover"
@@ -52,6 +53,25 @@
         <!--     </span> -->
         <!--   </div> -->
         <!-- </div> -->
+      </div>
+      <div
+        id="bottom-right"
+        class="flex flex-row-reverse col-start-3 row-start-3"
+      >
+        <div
+          id="todo-list"
+          class="bg-gray-500/50 h-[100%] w-64 relative bottom-6 right-12 hidden"
+        >
+          <form id="todo-form" class="absolute bottom-0 mx-auto">
+            <input type="text" name="todo-add" class="w-full" value="" />
+          </form>
+        </div>
+        <div
+          id="todo-toggle"
+          class="absolute right-1 bottom-1 text-xl text-gray-100 cursor-pointer"
+        >
+          Todo
+        </div>
       </div>
     </div>
     <script type="module" src="/main.js"></script>

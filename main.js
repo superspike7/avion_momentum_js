@@ -3,6 +3,7 @@ import User from "./components/user";
 import Time from "./components/time";
 import { focusInputHandler } from "./components/mainFocus";
 import renderQuote from "./components/quote";
+import { renderTodo } from "./components/todo";
 
 Time().render();
 
@@ -30,3 +31,30 @@ function addQuote() {
 }
 
 document.querySelector("#add-quote").addEventListener("click", addQuote);
+
+const todos = [{ task: "hello", status: "pending" }];
+
+function toggleTodo() {
+  document.querySelector("#todo-list").classList.toggle("hidden");
+}
+
+document.querySelector("#todo-toggle").addEventListener("click", toggleTodo);
+
+renderTodo(todos);
+
+document.querySelector("#todo-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const input = e.target.firstElementChild;
+  todos.push({ task: input.value, status: "pending" });
+  input.value = "";
+  renderTodo(todos);
+  console.log(todos);
+});
+
+document.querySelectorAll("[data-index]").forEach((el) => {
+  el.addEventListener("click", (e) => {
+    const index = e.target.dataset.index;
+    const newTodo = todos.filter((el, i) => i !== index);
+    console.log(newTodo);
+  });
+});

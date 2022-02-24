@@ -1,7 +1,7 @@
 function User(name) {
   function getElement() {
     const element = document.createElement("div");
-    element.textContent = `Good Morning, ${name}`;
+    element.textContent = `Good Evening, ${name}`;
     element.classList.add(
       "text-gray-100",
       "text-5xl",
